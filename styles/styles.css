@@ -542,7 +542,7 @@ header.active .nav-git-link {
   }
   .hero-left {
     margin: 0 8%;
-    bottom: 25%;
+    bottom: 30%;
   }
   .logo-name a {
     font-size: 2rem;
@@ -587,6 +587,12 @@ header.active .nav-git-link {
   }
   .nav-links a {
     font-size: 4rem;
+  }
+  #moonlight {
+    top: -2rem;
+  }
+  .moon_img {
+    top: 2.8rem;
   }
 }
 
