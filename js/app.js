@@ -78,14 +78,18 @@ const goToSection = (section, anim) => {
 
     tl.fromTo(image, 0.7, { scale: 0.9, x: 20 }, { scale: 1, x: 0 }, '-=0.5');
 
-    tl.fromTo(
-      cover,
-      1,
-      { width: '97%' },
-      { width: '0', ease: 'power4.out' },
-      '-=0.5'
-    );
-    tl.fromTo(coverfiller, 0.7, { width: '0%' }, { width: '100%' }, '-=1.25');
+    console.log(window.innerWidth);
+    if (window.innerWidth > 500) {
+      tl.fromTo(
+        cover,
+        1,
+        { width: '97%' },
+        { width: '0', ease: 'power4.out' },
+        '-=0.5'
+      );
+      tl.fromTo(coverfiller, 0.7, { width: '0%' }, { width: '100%' }, '-=1.25');
+    }
+
     tl.fromTo(number, 0.35, { y: '100%' }, { y: '0%' }, '-=0.35');
     tl.fromTo(subtitle, 1.6, { x: -700 }, { x: 0 }, '-=2');
     tl.fromTo(lines, 1.1, { x: -700 }, { x: 0 }, '-=1.5');
