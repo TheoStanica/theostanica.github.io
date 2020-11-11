@@ -1,0 +1,604 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+body {
+  background: #17181a;
+  overflow-x: hidden;
+  font-family: montserrat;
+  position: relative;
+  background: #0c121e;
+  background: rgb(5 9 18);
+  background: rgb(7 2 24);
+  background: rgb(6 1 21);
+  background: rgb(2 1 8);
+}
+#bg-slides {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 110vh;
+}
+#moon-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -10;
+}
+#moonlight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30%;
+  margin: auto;
+  width: 1390px;
+  height: 1390px;
+}
+.moonlight-img {
+  background: url('../img/moonlight.svg');
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-moon {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+.moon_img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30%;
+  margin: auto;
+  width: 1390px;
+  height: 1390px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.js-moon {
+  width: 40%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moon-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+}
+.moon-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+.moon-image {
+  background: url('../img/moon.svg');
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.portfolio-title {
+  font-size: 6rem;
+  color: #2175d8;
+  color: #0650a7;
+  font-weight: 800;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
+}
+.cloud {
+  width: 70%;
+  height: 70%;
+}
+
+.cloud1 {
+  background: url('../img/cloud1.svg');
+  position: absolute;
+  left: -20%;
+  top: 65%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.cloud3 {
+  background: url('../img/cloud3.svg');
+  position: absolute;
+  left: 50%;
+  top: 67%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.cloud2 {
+  background: url('../img/cloud2.svg');
+  position: absolute;
+  left: 67%;
+  top: 20%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.cloud4 {
+  background: url('../img/b_cloud01.svg');
+  position: absolute;
+  left: 40%;
+  top: -20%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.cloud5 {
+  background: url('../img/b_cloud02.svg');
+  position: absolute;
+  left: -25%;
+  top: -7%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.slide1 {
+  background: url('../img/slide1.png');
+  background-size: cover;
+}
+.slide2 {
+  background: url('../img/slide2.png');
+  background-size: cover;
+}
+.slide3 {
+  background: url('../img/slide3.png');
+  background-size: cover;
+}
+.slide4 {
+  background: url('../img/slide4.png');
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 40px 0 40px;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+}
+header.active .logo-name a {
+  color: black;
+}
+header.active .hamburger .line {
+  background: black;
+}
+header.active .nav-git-link {
+  color: black;
+}
+.extended-menu {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: -100vh;
+  left: 0;
+  background: #eee;
+  z-index: -1;
+}
+
+.nav-links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+
+.nav-links a {
+  color: black;
+  display: inline-block;
+  position: relative;
+  margin: 3rem 0;
+  text-decoration: none;
+  font-size: 10rem;
+  white-space: nowrap;
+}
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 10px;
+  top: 50%;
+  left: -10%;
+  background: black;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-links a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.logo-name {
+  font-family: pacifico;
+}
+.logo-name a {
+  text-decoration: none;
+  color: #eee;
+  font-size: 3rem;
+  transition: color 0.5s ease-in;
+}
+.hamburger {
+  cursor: pointer;
+}
+.hamburger .line {
+  width: 50px;
+  height: 2px;
+  background: #eee;
+  margin: 1rem;
+  pointer-events: none;
+  transition: background 0.7s ease-in-out;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+.nav-git-link {
+  color: #eee;
+  font-size: 3rem;
+  margin-right: 2rem;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.nav-git-link:hover {
+  color: rgb(133, 133, 133);
+}
+
+.section-slide {
+  position: relative;
+  min-height: 100vh;
+  color: #eee;
+}
+
+.hero-left {
+  margin-left: 11%;
+  position: absolute;
+  /* top: 50%; */
+  bottom: 50%;
+  transform: translateY(50%);
+  z-index: 1;
+}
+.hero-title {
+  font-size: 5rem;
+  position: relative;
+  display: inline-block;
+}
+.hero-title h1 {
+  font-weight: normal;
+}
+.hero-subtitle {
+  font-size: 1.8rem;
+  width: 50%;
+}
+.hero .hero-subtitle {
+  width: 70%;
+}
+
+.hero-line1,
+.hero-line2 {
+  width: 88px;
+  height: 4px;
+  background: #2175d8;
+  background: #0650a7;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+.hero-line2 {
+  transform: translateX(70%);
+}
+.hero-lines {
+  margin: 2.5rem 0;
+}
+
+.work .hero-subtitle {
+  width: 60%;
+}
+
+.image {
+  z-index: 0;
+  display: block;
+  position: absolute;
+  width: 55%;
+  height: 66%;
+  right: 8%;
+  top: 50%;
+  transform: translate(0px, -50%);
+  box-shadow: 0 80px 140px -40px rgba(0, 0, 0, 1);
+}
+.image-electric-vehicles {
+  background: url('../img/electric-vehicles-mockup.png') rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.image-contact {
+  background: url('../img/contact.png') rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.work .hero-title::before {
+  content: '';
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  background: #2175d8;
+  background: #0650a7;
+  z-index: -1;
+  right: 10%;
+  top: -30%;
+  display: none;
+}
+
+.cta-button {
+  display: inline-block;
+  position: relative;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  margin-top: 3rem;
+  border: 1px solid #eee;
+  color: #eee;
+  text-decoration: none;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #2175d8;
+  background: #0650a7;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.2s ease-in-out;
+  transform-origin: top;
+  transform: scaley(0);
+}
+.cta-button:hover::after {
+  transform: scaley(1);
+  transform-origin: bottom;
+}
+
+.contact .hero-title {
+  font-size: 7rem;
+}
+.contact .subtitle {
+  font-size: 3rem;
+}
+.contact .subtitle a {
+  color: #eee;
+  display: block;
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+
+.page-num {
+  color: white;
+  display: inline-block;
+  position: absolute;
+  right: -5%;
+  bottom: 7%;
+  font-size: 15rem;
+  text-decoration: none;
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.image-cover {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  top: 0;
+  right: 0%;
+  background: rgba(2, 1, 8, 0.95);
+}
+.image-cover-filler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background-color: #0650a7;
+}
+
+.hero-title-bg {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  background: #2175d8;
+  background: #0650a7;
+  z-index: -1;
+  right: 10%;
+  top: -30%;
+}
+
+@media screen and (max-width: 1250px) {
+  .slide {
+    transform: translateX(-50%);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .image {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #moonlight {
+    width: 100vw;
+    height: 100vw;
+    left: 35%;
+  }
+  .moon_img {
+    width: 100vw;
+    height: 100vw;
+    left: 35%;
+  }
+  .hero-left {
+    margin-left: 5%;
+  }
+  .portfolio-title {
+    font-size: 3rem;
+    transform: translate(-30%, -30%);
+  }
+  .hero-line1,
+  .hero-line2 {
+    width: 70px;
+  }
+  .page-num {
+    font-size: 7.5rem;
+  }
+  .nav-git-link {
+    font-size: 2.4rem;
+  }
+  .nav-links a {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #moon-background {
+    height: 100%;
+    margin: auto;
+    max-height: 850px;
+  }
+  #moonlight {
+    width: 130vw;
+    height: 130vw;
+    left: -15%;
+    top: 2rem;
+    bottom: auto;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .moonlight-img {
+    background-size: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-moon {
+    overflow: hidden;
+  }
+  .moon_img {
+    width: 100vw;
+    height: 100vw;
+    left: 50%;
+    top: 8rem;
+    bottom: auto;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .js-moon {
+    width: 60%;
+    height: 60%;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  .hero-left {
+    margin: 0 13%;
+    bottom: 25%;
+  }
+  .logo-name a {
+    font-size: 2rem;
+  }
+  header {
+    padding: 20px 20px 0 20px;
+  }
+  .hero-line1,
+  .hero-line2 {
+    width: 40px;
+    margin: 0.7rem 0;
+  }
+  .hero-lines {
+    margin: 1rem 0;
+  }
+  .work .hero-subtitle {
+    width: 90%;
+  }
+  .hero .hero-subtitle {
+    width: 90%;
+  }
+  .image {
+    width: 85%;
+    height: 50%;
+    top: 35%;
+    right: 8%;
+  }
+  .cta-button {
+    font-size: 1.2rem;
+  }
+  .work .hero-title {
+    font-size: 2.8rem;
+  }
+  .contact .subtitle {
+    font-size: 2rem;
+  }
+  .page-num {
+    display: none;
+  }
+  .nav-git-link {
+    display: none;
+  }
+  .nav-links a {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #moonlight {
+    top: -2rem;
+  }
+  .moon_img {
+    top: 2rem;
+  }
+  .cta-button {
+    padding: 1rem 1rem;
+    margin-right: 0.3rem;
+  }
+}
