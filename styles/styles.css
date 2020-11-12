@@ -112,7 +112,7 @@ body {
   top: 50%;
   left: 10%;
   transform: translate(-50%, -50%);
-  text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
+  /* text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2); */
 }
 .cloud {
   width: 70%;
@@ -196,8 +196,17 @@ header {
 header.active .logo-name a {
   color: black;
 }
+header .hamburger .line {
+  transition: 0.4s ease-in-out;
+}
 header.active .hamburger .line {
   background: black;
+}
+header.active .hamburger .line1 {
+  transform: rotate(45deg) translateY(7.5px);
+}
+header.active .hamburger .line2 {
+  transform: rotate(-45deg) translateY(-7.5px);
 }
 header.active .nav-git-link {
   color: black;
@@ -210,6 +219,10 @@ header.active .nav-git-link {
   left: 0;
   background: #eee;
   z-index: -1;
+  transition: 0.4s ease-in-out;
+}
+.extended-menu.active {
+  top: 0;
 }
 
 .nav-links {
@@ -342,22 +355,29 @@ header.active .nav-git-link {
   right: 8%;
   top: 50%;
   transform: translate(0px, -50%);
-  box-shadow: 0 80px 140px -40px rgba(0, 0, 0, 1);
+  /* box-shadow: 0 80px 140px -40px rgba(0, 0, 0, 1); */
 }
-.image-electric-vehicles {
-  background: url('../img/electric-vehicles-mockup.png') rgba(0, 0, 0, 0.3);
+/* .image-electric-vehicles {
+  background: url('../img/electric-vehicles-mockup-min.png');
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+} */
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.image-contact {
-  background: url('../img/contact.png') rgba(0, 0, 0, 0.3);
+
+/* .image-contact {
+  background: url('../img/contact.png');
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 .work .hero-title::before {
   content: '';
@@ -424,7 +444,7 @@ header.active .nav-git-link {
   bottom: 7%;
   font-size: 15rem;
   text-decoration: none;
-  opacity: 0.8;
+  opacity: 1;
   overflow: hidden;
 }
 
@@ -434,7 +454,7 @@ header.active .nav-git-link {
   height: 100%;
   top: 0;
   right: 0%;
-  background: rgba(2, 1, 8, 0.95);
+  background: rgb(2, 1, 8);
 }
 .image-cover-filler {
   position: absolute;
@@ -590,6 +610,7 @@ header.active .nav-git-link {
   }
   #moonlight {
     top: -2rem;
+    /* left: 50%; */
   }
   .moon_img {
     top: 2.8rem;

@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 
 // parallax animations for moon and moonlight
 var scene = document.getElementById('moonlight');
@@ -11,23 +12,14 @@ var parallaxInstance = new Parallax(scene);
 // nav animation handler
 const toggleAnimation = (e) => {
   const header = document.querySelector('header');
+  const extendedMenu = document.querySelector('.extended-menu');
 
   if (!header.classList.contains('active')) {
     header.classList.add('active');
-    // e.target.classList.add('active');
-    gsap.to('.line1', 0.3, { rotate: 45, y: 5.5 });
-    gsap.to('.line2', 0.3, { rotate: -45, y: -5.5 });
-    gsap.to('.extended-menu', 0.5, { y: '100vh', ease: 'power2.out' });
+    extendedMenu.classList.toggle('active');
   } else {
     header.classList.remove('active');
-    // e.target.classList.remove('active');
-    gsap.to('.line1', 0.3, { rotate: 0, y: 0 });
-    gsap.to('.line2', 0.3, { rotate: 0, y: 0 });
-    gsap.to('.extended-menu', 0.5, {
-      y: 0,
-      ease: 'power1.out',
-      clearProps: 'all',
-    });
+    extendedMenu.classList.toggle('active');
   }
 };
 
@@ -44,15 +36,15 @@ navHandler();
 
 // -----------------------------------------------------
 
-// const slides = document.querySelectorAll('.section-slide');
-const slides = gsap.utils.toArray('.section-slide');
+const slides = document.querySelectorAll('.section-slide');
+// const slides = gsap.utils.toArray('.section-slide');
 
 const goToSection = (section, anim) => {
   const image = section.querySelector('.image-slide');
   // console.log(image);
 
   const tl = gsap.timeline({
-    ease: 'power2.out',
+    // ease: 'power2.out',
   });
 
   gsap.set('html', { overflow: 'hidden' });
@@ -78,7 +70,6 @@ const goToSection = (section, anim) => {
 
     tl.fromTo(image, 0.7, { scale: 0.9, x: 20 }, { scale: 1, x: 0 }, '-=0.5');
 
-    console.log(window.innerWidth);
     if (window.innerWidth > 500) {
       tl.fromTo(
         cover,
@@ -95,7 +86,7 @@ const goToSection = (section, anim) => {
     tl.fromTo(lines, 1.1, { x: -700 }, { x: 0 }, '-=1.5');
     tl.fromTo(title, 1, { x: -700 }, { x: 0 }, '-=1.3');
     tl.fromTo(titleBg, 1, { x: -700 }, { x: 0 }, '-=1.3');
-    // tl.set('html', { overflow: 'auto' });
+    gsap.set('html', { overflow: 'auto' });
   } else {
     // moon animation
     var scene = document.getElementById('moon');
@@ -158,7 +149,7 @@ const goToSection = (section, anim) => {
       { x: 0, opacity: 1 },
       '-=0.5'
     );
-    // tl.set('html', { overflow: 'auto' });
+    gsap.set('html', { overflow: 'auto' });
   }
 };
 
@@ -167,14 +158,12 @@ slides.forEach((slide) => {
     trigger: slide,
     onEnter: () => {
       goToSection(slide);
-
-      console.log('on enter');
+      // console.log('on enter');
     },
     onEnterBack: () => {
       goToSection(slide);
-      console.log('on back');
+      // console.log('on back');
     },
-
     // markers: true,
   });
 });
