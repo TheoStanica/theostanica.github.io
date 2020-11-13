@@ -1,6 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(ScrollToPlugin);
-
 // parallax animations for moon and moonlight
 var scene = document.getElementById('moonlight');
 var parallaxInstance = new Parallax(scene);
@@ -36,25 +33,26 @@ navHandler();
 
 // -----------------------------------------------------
 
-const slides = document.querySelectorAll('.section-slide');
-// const slides = gsap.utils.toArray('.section-slide');
+new fullpage('#fullpage', {
+  licenseKey: 'YOUR KEY HERE',
+  //options here
+  autoScrolling: true,
+  easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+  scrollingSpeed: 1e3,
+  navigation: !0,
+  navigationPosition: 'left',
+  animateAnchor: !1,
+  anchors: ['home', 'work1', 'work2', 'work3', 'contact'],
+  onLeave: (index, nextIndex, direction) => {
+    goToSection2(nextIndex);
+  },
+});
 
-const goToSection = (section, anim) => {
+const goToSection2 = (nextIndex) => {
+  const section = nextIndex.item;
   const image = section.querySelector('.image-slide');
-  // console.log(image);
 
-  const tl = gsap.timeline({
-    // ease: 'power2.out',
-  });
-
-  gsap.set('html', { overflow: 'hidden' });
-
-  tl.to(window, {
-    scrollTo: { y: section, autokill: false },
-    duration: 0.8,
-    overwrite: true,
-    onComplete: () => gsap.set('html', { overflow: 'auto' }),
-  });
+  const tl = gsap.timeline({ delay: 1.1 });
 
   if (image) {
     // slides animation
@@ -86,7 +84,6 @@ const goToSection = (section, anim) => {
     tl.fromTo(lines, 1.1, { x: -700 }, { x: 0 }, '-=1.5');
     tl.fromTo(title, 1, { x: -700 }, { x: 0 }, '-=1.3');
     tl.fromTo(titleBg, 1, { x: -700 }, { x: 0 }, '-=1.3');
-    gsap.set('html', { overflow: 'auto' });
   } else {
     // moon animation
     var scene = document.getElementById('moon');
@@ -149,21 +146,6 @@ const goToSection = (section, anim) => {
       { x: 0, opacity: 1 },
       '-=0.5'
     );
-    gsap.set('html', { overflow: 'auto' });
+    // tl.set('html', { overflow: 'auto' });
   }
 };
-
-slides.forEach((slide) => {
-  ScrollTrigger.create({
-    trigger: slide,
-    onEnter: () => {
-      goToSection(slide);
-      // console.log('on enter');
-    },
-    onEnterBack: () => {
-      goToSection(slide);
-      // console.log('on back');
-    },
-    // markers: true,
-  });
-});
