@@ -39,15 +39,22 @@ new fullpage('#fullpage', {
   autoScrolling: true,
   easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   scrollingSpeed: 1e3,
-  // navigation: !0,
+  // navigation: true,
   // navigationPosition: 'left',
   // animateAnchor: !1,
+  scrollOverflow: false,
+  // lazyloading: true,
+  // resetSliders: true,
+  // fadingEffect: true,
+  // navigation: true,
+  // sectionSelector: '.section-slide',
+  lockAnchors: true,
   anchors: ['home', 'work1', 'work2', 'work3', 'contact'],
   onLeave: (index, nextIndex, direction) => {
     animateSlides(nextIndex.item);
   },
   afterLoad: (index, nextIndex, direction) => {
-    // goToSection2(nextIndex);
+    // animateSlides(nextIndex);
   },
 });
 
@@ -155,3 +162,11 @@ const animateSlides = (nextIndex) => {
 
 const first = document.querySelector('section.hero');
 animateSlides(first);
+
+// const slides = document.querySelectorAll('.section-slide');
+// slides.forEach((slide) => {
+//   slide.style.minHeight = window.innerHeight;
+// });
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);

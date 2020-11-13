@@ -299,6 +299,7 @@ header.active .nav-git-link {
 .section-slide {
   position: relative;
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   color: #eee;
 }
 
@@ -534,7 +535,7 @@ header.active .nav-git-link {
     width: 130vw;
     height: 130vw;
     left: -15%;
-    top: 2rem;
+    top: -2rem;
     bottom: auto;
     transform: translate3d(-50%, 0, 0);
   }
@@ -550,7 +551,8 @@ header.active .nav-git-link {
     width: 100vw;
     height: 100vw;
     left: 50%;
-    top: 8rem;
+    /* top: 8rem; */
+    top: -2rem;
     bottom: auto;
     transform: translate3d(-50%, 0, 0);
   }
@@ -567,7 +569,7 @@ header.active .nav-git-link {
   .hero-left {
     margin: 0 8%;
     /* bottom: 30%; */
-    bottom: 10%;
+    bottom: 5%;
     transform: translateY(0);
   }
   .logo-name a {
@@ -615,12 +617,12 @@ header.active .nav-git-link {
     font-size: 4rem;
   }
   #moonlight {
-    top: -2rem;
+    top: -8rem;
     /* left: 50%; */
   }
-  .moon_img {
+  /* .moon_img {
     top: 2.8rem;
-  }
+  } */
 }
 
 @media screen and (max-width: 350px) {
