@@ -355,7 +355,7 @@ header.active .nav-git-link {
   right: 8%;
   top: 50%;
   transform: translate(0px, -50%);
-  /* box-shadow: 0 80px 140px -40px rgba(0, 0, 0, 1); */
+  box-shadow: 0 80px 140px -40px rgba(0, 0, 0, 1);
 }
 /* .image-electric-vehicles {
   background: url('../img/electric-vehicles-mockup-min.png');
@@ -519,6 +519,9 @@ header.active .nav-git-link {
   .nav-links a {
     font-size: 6rem;
   }
+  .image {
+    box-shadow: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -563,7 +566,9 @@ header.active .nav-git-link {
   }
   .hero-left {
     margin: 0 8%;
-    bottom: 30%;
+    /* bottom: 30%; */
+    bottom: 5%;
+    transform: translateY(0);
   }
   .logo-name a {
     font-size: 2rem;

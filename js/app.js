@@ -39,17 +39,20 @@ new fullpage('#fullpage', {
   autoScrolling: true,
   easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   scrollingSpeed: 1e3,
-  navigation: !0,
-  navigationPosition: 'left',
-  animateAnchor: !1,
+  // navigation: !0,
+  // navigationPosition: 'left',
+  // animateAnchor: !1,
   anchors: ['home', 'work1', 'work2', 'work3', 'contact'],
   onLeave: (index, nextIndex, direction) => {
-    goToSection2(nextIndex);
+    animateSlides(nextIndex.item);
+  },
+  afterLoad: (index, nextIndex, direction) => {
+    // goToSection2(nextIndex);
   },
 });
 
-const goToSection2 = (nextIndex) => {
-  const section = nextIndex.item;
+const animateSlides = (nextIndex) => {
+  const section = nextIndex;
   const image = section.querySelector('.image-slide');
 
   const tl = gsap.timeline({ delay: 1.1 });
@@ -149,3 +152,6 @@ const goToSection2 = (nextIndex) => {
     // tl.set('html', { overflow: 'auto' });
   }
 };
+
+const first = document.querySelector('section.hero');
+animateSlides(first);
