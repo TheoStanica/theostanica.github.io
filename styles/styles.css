@@ -567,7 +567,7 @@ header.active .nav-git-link {
   .hero-left {
     margin: 0 8%;
     /* bottom: 30%; */
-    bottom: 5%;
+    bottom: 10%;
     transform: translateY(0);
   }
   .logo-name a {
