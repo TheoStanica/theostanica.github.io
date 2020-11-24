@@ -6,56 +6,48 @@ var scene = document.getElementById('moon');
 var parallaxInstance = new Parallax(scene);
 // ----------------------------------------------------
 
-// nav animation handler
-const toggleAnimation = (e) => {
-  const header = document.querySelector('header');
-  const extendedMenu = document.querySelector('.extended-menu');
+// // nav animation handler
+// const toggleAnimation = (e) => {
+//   const header = document.querySelector('header');
+//   const extendedMenu = document.querySelector('.extended-menu');
 
-  if (!header.classList.contains('active')) {
-    header.classList.add('active');
-    extendedMenu.classList.toggle('active');
-  } else {
-    header.classList.remove('active');
-    extendedMenu.classList.toggle('active');
-  }
-};
+//   if (!header.classList.contains('active')) {
+//     header.classList.add('active');
+//     extendedMenu.classList.toggle('active');
+//   } else {
+//     header.classList.remove('active');
+//     extendedMenu.classList.toggle('active');
+//   }
+// };
 
-const navHandler = () => {
-  const navHamburger = document.querySelector('.hamburger');
-  const navlinks = document.querySelectorAll('.nav-links a');
-  navHamburger.addEventListener('click', toggleAnimation);
-  navlinks.forEach((link) => {
-    link.addEventListener('click', toggleAnimation);
-  });
-};
+// const navHandler = () => {
+//   const navHamburger = document.querySelector('.hamburger');
+//   const navlinks = document.querySelectorAll('.nav-links a');
 
-navHandler();
+//   navHamburger.addEventListener('click', toggleAnimation);
+//   navlinks.forEach((link) => {
+//     link.addEventListener('click', toggleAnimation);
+//   });
+// };
+
+// navHandler();
 
 // -----------------------------------------------------
 
 new fullpage('#fullpage', {
   licenseKey: 'YOUR KEY HERE',
-  //options here
   autoScrolling: true,
   easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   scrollingSpeed: 1e3,
-  // navigation: true,
-  // navigationPosition: 'left',
-  // animateAnchor: !1,
   scrollOverflow: false,
-  // lazyloading: true,
-  // resetSliders: true,
-  // fadingEffect: true,
-  // navigation: true,
-  // sectionSelector: '.section-slide',
-  lockAnchors: true,
   anchors: ['home', 'work1', 'work2', 'work3', 'contact'],
+  menu: '#myMenu',
   onLeave: (index, nextIndex, direction) => {
+    console.log(window.innerWidth);
+
     animateSlides(nextIndex.item);
   },
-  afterLoad: (index, nextIndex, direction) => {
-    // animateSlides(nextIndex);
-  },
+  afterLoad: (index, nextIndex, direction) => {},
 });
 
 const animateSlides = (nextIndex) => {
@@ -95,9 +87,11 @@ const animateSlides = (nextIndex) => {
     tl.fromTo(title, 1, { x: -700 }, { x: 0 }, '-=1.3');
     tl.fromTo(titleBg, 1, { x: -700 }, { x: 0 }, '-=1.3');
   } else {
-    // moon animation
+    // parallax
     var scene = document.getElementById('moon');
     var parallaxInstance = new Parallax(scene);
+
+    // slide animation
     const title = section.querySelector('.hero-left .hero-title');
     const lines = section.querySelector('.hero-left .hero-lines');
     const subtitle = section.querySelector('.hero-left .hero-subtitle');
@@ -108,6 +102,7 @@ const animateSlides = (nextIndex) => {
     const cloud1 = section.querySelector('.cloud1');
     const moon = section.querySelector('.moon-image');
     const portfolioTitle = section.querySelector('.portfolio-title');
+    const scrolldown = section.querySelector('.scrolldown');
 
     tl.fromTo(subtitle, 1.6, { x: -700 }, { x: 0 }, '-=1.5');
     tl.fromTo(lines, 1.1, { x: -700 }, { x: 0 }, '-=1');
@@ -156,17 +151,28 @@ const animateSlides = (nextIndex) => {
       { x: 0, opacity: 1 },
       '-=0.5'
     );
-    // tl.set('html', { overflow: 'auto' });
+    tl.fromTo(
+      scrolldown,
+      0.5,
+      { y: '100%', opacity: 0 },
+      { y: 0, opacity: 1 },
+      '-=1'
+    );
   }
 };
 
 const first = document.querySelector('section.hero');
 animateSlides(first);
 
-// const slides = document.querySelectorAll('.section-slide');
-// slides.forEach((slide) => {
-//   slide.style.minHeight = window.innerHeight;
-// });
-
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+// setTimeout(() => {
+
+//   gsap.to('.load-swipe', 0.7, { y: '-100%', ease: 'sine.out' });
+// }, 300);

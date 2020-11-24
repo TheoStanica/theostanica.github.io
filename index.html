@@ -18,7 +18,7 @@
     <link rel="icon" href="./img/favicon.svg" />
   </head>
   <body>
-    <main>
+    <main data-barba="wrapper">
       <header>
         <div class="logo-name">
           <a href="./index.html">Theodor Stănică</a>
@@ -43,8 +43,24 @@
           </ul>
         </div>
       </header>
-      <div id="fullpage">
-        <section class="hero section-slide section" data-anchor="home">
+      <div class="fullpage-nav">
+        <ul id="myMenu">
+          <li data-menuanchor="home"><a href="#home"></a></li>
+          <li data-menuanchor="work1"><a href="#work1"></a></li>
+          <li data-menuanchor="work2"><a href="#work2"></a></li>
+          <li data-menuanchor="work3"><a href="#work3"></a></li>
+          <li data-menuanchor="contact"><a href="#contact"></a></li>
+        </ul>
+      </div>
+      <div id="fullpage" data-barba="container" data-barba-namespace="home">
+        <!-- ------------------------------- HOME SECTION  ------------------------------- -->
+
+        <section
+          class="hero section-slide section"
+          id="home-link"
+          data-anchor="home"
+        >
+          <p class="scrolldown">SCROLLDOWN</p>
           <div class="hero-left">
             <div class="hero-title">
               <h1>
@@ -99,7 +115,12 @@
             </div>
           </div>
         </section>
-        <section class="section-slide work section" data-anchor="work1">
+        <!-- ------------------------------- WORK1 SECTION ------------------------------- -->
+        <section
+          class="section-slide work section"
+          id="work-link"
+          data-anchor="work1"
+        >
           <div class="hero-left">
             <div class="hero-title">
               <h1>Electric Vehicles</h1>
@@ -115,7 +136,9 @@
                   An online electric vehicles store built using HTML, CSS and
                   Javascript.
                 </p>
-                <a href="" class="cta-button">Show me more</a>
+                <a href="./electric-vehicles.html" class="cta-button"
+                  >Show me more</a
+                >
                 <a href="" class="cta-button"
                   ><i class="fab fa-github"></i> Github</a
                 >
@@ -132,7 +155,9 @@
             </div>
           </a>
         </section>
-        <section class="section-slide work section" data-anchor="work3">
+
+        <!-- ------------------------------- Work2 SECTION ------------------------------- -->
+        <section class="section-slide work section" data-anchor="work2">
           <div class="hero-left">
             <div class="hero-title">
               <h1>Project Mark</h1>
@@ -166,6 +191,8 @@
             </div>
           </a>
         </section>
+
+        <!-- ------------------------------- Work3 SECTION ------------------------------- -->
         <section class="section-slide work section" data-anchor="work3">
           <div class="hero-left">
             <div class="hero-title">
@@ -200,8 +227,11 @@
             </div>
           </a>
         </section>
+
+        <!-- ------------------------------- Contact SECTION ------------------------------- -->
         <section
           class="section-slide work contact section"
+          id="contact-link"
           data-anchor="contact"
         >
           <div class="hero-left">
@@ -241,12 +271,7 @@
         <div data-depth="0.2" class="moonlight-img"></div>
       </div>
     </div>
-    <!-- <div data-relative-input="true" id="bg-slides">
-      <div data-depth="0.2" class="slide slide1"></div>
-      <div data-depth="0.4" class="slide slide2"></div>
-      <div data-depth="0.6" class="slide slide3"></div>
-      <div data-depth="0.8" class="slide slide4"></div>
-    </div> -->
+    <div class="load-swipe"></div>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
@@ -261,20 +286,10 @@
     crossorigin="anonymous"
   ></script>
   <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"
-    integrity="sha512-wK2NuxEyN/6s53M8G7c6cRUXvkeV8Uh5duYS06pAdLq4ukc72errSIyyGQGYtzWEzvVGzGSWg8l79e0VkTJYPw=="
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"
-    integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q=="
-    crossorigin="anonymous"
-  ></script>
-
-  <script
     src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.js"
     integrity="sha512-eH2N2Zt2AeLuFlFvRSEeZcVeAESY+8nfIqhxx0XXEou6w/G4lLY3K8UKNYqi6e1pLXDduVF1KF/lbyxy3+X6OA=="
     crossorigin="anonymous"
   ></script>
+  <script src="./js/navHandler.js"></script>
   <script src="./js/app.js"></script>
 </html>

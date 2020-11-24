@@ -5,9 +5,15 @@
 }
 html {
   font-size: 62.5%;
+  /* scroll-behavior: smooth; */
 }
 html::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
+  /* --webkit-appearance: none; */
+}
+
+html.presentation::-webkit-scrollbar {
+  /* display: auto; */
 }
 body {
   background: #17181a;
@@ -192,7 +198,13 @@ header {
   position: fixed;
   width: 100vw;
   z-index: 10;
+  transition: padding 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
+header.scrolled {
+  padding: 10px 40px 10px 40px;
+  background-color: rgba(2, 1, 8, 0.95);
+}
+
 header.active .logo-name a {
   color: black;
 }
@@ -203,10 +215,10 @@ header.active .hamburger .line {
   background: black;
 }
 header.active .hamburger .line1 {
-  transform: rotate(45deg) translateY(7.5px);
+  transform: rotate(45deg) translateY(8.5px);
 }
 header.active .hamburger .line2 {
-  transform: rotate(-45deg) translateY(-7.5px);
+  transform: rotate(-45deg) translateY(-8.5px);
 }
 header.active .nav-git-link {
   color: black;
@@ -302,6 +314,10 @@ header.active .nav-git-link {
   min-height: calc(var(--vh, 1vh) * 100);
   color: #eee;
 }
+.section-slide.white {
+  color: black;
+  background-color: #eee;
+}
 
 .hero-left {
   margin-left: 11%;
@@ -322,6 +338,10 @@ header.active .nav-git-link {
 .hero-subtitle {
   font-size: 1.8rem;
   width: 50%;
+}
+.hero-subtitle p,
+.hero .author {
+  margin-bottom: 3rem;
 }
 .hero .hero-subtitle {
   width: 70%;
@@ -358,13 +378,6 @@ header.active .nav-git-link {
   transform: translate(0px, -50%);
   box-shadow: 0 80px 140px -40px rgba(0, 0, 0, 1);
 }
-/* .image-electric-vehicles {
-  background: url('../img/electric-vehicles-mockup-min.png');
-  background-blend-mode: darken;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
 
 .image img {
   width: 100%;
@@ -400,7 +413,7 @@ header.active .nav-git-link {
   font-size: 2rem;
   padding: 1rem 2rem;
   margin-right: 1rem;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   border: 1px solid #eee;
   color: #eee;
   text-decoration: none;
@@ -448,6 +461,7 @@ header.active .nav-git-link {
   text-decoration: none;
   opacity: 1;
   overflow: hidden;
+  opacity: 0.8;
 }
 
 .image-cover {
@@ -476,6 +490,266 @@ header.active .nav-git-link {
   z-index: -1;
   right: 10%;
   top: -30%;
+}
+
+.load-swipe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #17181a;
+  /* background: rgb(2 1 8); */
+  display: none;
+}
+
+.page-top .image {
+  /* position: relative; */
+  width: 66%;
+  height: 100vh;
+  box-shadow: none;
+  right: 0;
+}
+
+.page-top .image-electric-vehicles {
+  background: url('../img/electric-vehicles-mockup-min.png') rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Presentation page */
+.presentation body {
+  background: #fff;
+  /* background: #17181a; */
+}
+.presentation .section-slide {
+  background: rgb(2, 1, 8);
+}
+.wrapper {
+  padding-bottom: 20rem;
+}
+.meta {
+  /* background: #eee; */
+  padding-top: 7rem;
+  position: relative;
+}
+.content {
+  margin: 0 11% 0 11%;
+  margin: auto;
+  /* max-width: 1200px; */
+  width: 100%;
+}
+.back-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  z-index: -1;
+  background: #ebebeb;
+  /* background: #f2f4f5; */
+}
+.img-content {
+  /* max-width: 80%; */
+}
+.meta-text {
+  margin-bottom: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  /* font-size: 2.4rem; */
+  /* font-weight: 600; */
+  flex-wrap: wrap;
+}
+.meta-text-wrap {
+  padding: 0 11% 0 11%;
+}
+.meta-text p {
+  font-size: 1.8rem;
+  /* opacity: 0.8; */
+  word-wrap: break-word;
+}
+.meta-text li {
+  margin-right: 6rem;
+  margin-bottom: 2.5rem;
+  max-width: 40rem;
+}
+.small-title,
+.meta-text .small-title {
+  font-size: 2.7rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.2rem;
+  line-height: 1.2;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.text {
+  /* color: #eee; */
+  display: flex;
+  margin-top: 15rem;
+  align-items: center;
+  padding: 0 11%;
+}
+.text .heading {
+  position: relative;
+}
+
+.text .heading {
+  font-size: 5rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-right: 3rem;
+  margin-bottom: 5rem;
+  position: relative;
+}
+.text .heading::after {
+  content: '';
+  position: absolute;
+  top: -45%;
+  right: 20%;
+  width: 500%;
+  height: 100%;
+  background: #0650a7;
+  z-index: -1;
+}
+.text-works {
+  /* width: 75%; */
+  font-size: 1.8rem;
+  text-align: justify;
+  opacity: 0.8;
+}
+.big-image {
+  width: 100%;
+  height: 115rem;
+  background: url('../img/EV-slideshow.png') #000;
+  background-size: cover;
+  margin-top: 15rem;
+}
+
+.back-btn-wrap {
+  text-align: center;
+  margin-top: 14rem;
+}
+.back-btn {
+  display: inline-block;
+  font-size: 3rem;
+  color: rgb(2 1 8);
+  letter-spacing: 0.2rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.back-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 65px;
+  height: 2px;
+  left: -88px;
+  background: rgb(2 1 8);
+  transition: 0.5s;
+}
+.back-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 24px;
+  height: 1px;
+  left: -88px;
+  background: rgb(2 1 8);
+  transition: 0.5s;
+}
+
+.back-btn:hover {
+  transform: translateX(-10px);
+}
+.back-btn:hover::after {
+  width: 80px;
+  left: -112px;
+}
+.back-btn:hover::before {
+  left: -112px;
+  transform: rotate(-45deg) translate3d(2px, -9px, 0);
+}
+
+.back-button {
+  /* position: fixed; */
+  position: absolute;
+  top: 150px;
+  left: 40px;
+  width: 65px;
+  transition: 0.5s ease-in-out;
+}
+.back-button:hover {
+  left: 30px;
+}
+
+.scrolldown {
+  /* position: fixed; */
+  position: absolute;
+  bottom: 80px;
+  left: 40px;
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  writing-mode: vertical-lr;
+}
+.presentation .scrolldown {
+  /* position: fixed; */
+}
+.scrolldown::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 64px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: -80px;
+  background: #eee;
+}
+
+.fullpage-nav {
+  position: fixed;
+  z-index: 100;
+  bottom: 5%;
+  opacity: 1;
+  left: 50%;
+  overflow: hidden;
+  transform: translatex(-50%);
+}
+.fullpage-nav ul {
+  display: flex;
+  align-items: flex-end;
+}
+.fullpage-nav li {
+  display: block;
+  margin: 0 25px;
+}
+.fullpage-nav li a {
+  width: 3px;
+  height: 100%;
+  height: 24px;
+  background: #eee;
+  display: block;
+  transition: 0.5s ease-in-out;
+}
+.fullpage-nav li.active a {
+  width: 3px;
+  height: 40px;
 }
 
 @media screen and (max-width: 1250px) {
@@ -523,6 +797,20 @@ header.active .nav-git-link {
   .image {
     box-shadow: none;
   }
+  .meta-text-wrap {
+    padding: 0 5% 0 5%;
+  }
+  .text {
+    padding: 0 5%;
+    flex-direction: column;
+    margin-top: 10rem;
+  }
+  .text .heading {
+    margin-right: 0;
+  }
+  .img-content {
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -569,7 +857,7 @@ header.active .nav-git-link {
   .hero-left {
     margin: 0 8%;
     /* bottom: 30%; */
-    bottom: 5%;
+    bottom: 10%;
     transform: translateY(0);
   }
   .logo-name a {
@@ -577,6 +865,9 @@ header.active .nav-git-link {
   }
   header {
     padding: 20px 20px 0 20px;
+  }
+  header.scrolled {
+    padding: 10px 20px 10px 20px;
   }
   .hero-line1,
   .hero-line2 {
@@ -597,6 +888,12 @@ header.active .nav-git-link {
     height: 50%;
     top: 35%;
     right: 8%;
+  }
+  .page-top .image {
+    width: 100%;
+    height: 70%;
+    top: 0%;
+    transform: translate(0, 0);
   }
   .cta-button {
     font-size: 1.2rem;
@@ -623,6 +920,44 @@ header.active .nav-git-link {
   /* .moon_img {
     top: 2.8rem;
   } */
+  /* .content {
+    padding: 0 8%;
+  } */
+  .meta-text-wrap {
+    padding: 0 8%;
+  }
+  .back-button {
+    top: 75px;
+    left: 20px;
+    width: 45px;
+  }
+  .scrolldown {
+    font-size: 0.9rem;
+    left: auto;
+    right: 5%;
+    bottom: 40px;
+  }
+  .scrolldown::after {
+    height: 32px;
+    bottom: -40px;
+  }
+  .fullpage-nav li {
+    margin: 0 12px;
+  }
+  .fullpage-nav {
+    bottom: 3.5%;
+  }
+  .fullpage-nav li a {
+    height: 15px;
+    width: 4px;
+  }
+  .fullpage-nav li.active a {
+    height: 25px;
+  }
+  .hero-subtitle p,
+  .hero .author {
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 350px) {
