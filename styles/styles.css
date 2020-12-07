@@ -7,14 +7,7 @@ html {
   font-size: 62.5%;
   /* scroll-behavior: smooth; */
 }
-html::-webkit-scrollbar {
-  /* display: none; */
-  /* --webkit-appearance: none; */
-}
 
-html.presentation::-webkit-scrollbar {
-  /* display: auto; */
-}
 body {
   background: #17181a;
   overflow-x: hidden;
@@ -413,7 +406,7 @@ header.active .nav-git-link {
   font-size: 2rem;
   padding: 1rem 2rem;
   margin-right: 1rem;
-  /* margin-top: 3rem; */
+  margin-bottom: 1rem;
   border: 1px solid #eee;
   color: #eee;
   text-decoration: none;
@@ -512,7 +505,14 @@ header.active .nav-git-link {
 }
 
 .page-top .image-electric-vehicles {
-  background: url('../img/electric-vehicles-mockup-min.png') rgba(0, 0, 0, 0.4);
+  background: url('../img/Electric-vehicles-top-img.png') rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.page-top .image-gittix {
+  background: url('../img/gittix-top-img.png') rgba(0, 0, 0, 0.4);
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
@@ -551,9 +551,7 @@ header.active .nav-git-link {
   background: #ebebeb;
   /* background: #f2f4f5; */
 }
-.img-content {
-  /* max-width: 80%; */
-}
+
 .meta-text {
   margin-bottom: 4.5rem;
   display: flex;
@@ -609,7 +607,7 @@ img {
   font-weight: 600;
   letter-spacing: 0.2em;
   margin-right: 3rem;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   position: relative;
 }
 .text .heading::after {
@@ -634,6 +632,15 @@ img {
   background: url('../img/EV-slideshow.png') #000;
   background-size: cover;
   margin-top: 15rem;
+}
+.big-image.gittix {
+  width: 100%;
+  height: 115rem;
+  background: url('../img/gittix-slideshow.png') #000;
+  background-size: cover;
+  margin-top: 15rem;
+  background-size: cover;
+  background-position: center;
 }
 
 .back-btn-wrap {
@@ -689,7 +696,7 @@ img {
 .back-button {
   /* position: fixed; */
   position: absolute;
-  top: 150px;
+  top: 12rem;
   left: 40px;
   width: 65px;
   transition: 0.5s ease-in-out;
@@ -707,9 +714,7 @@ img {
   letter-spacing: 0.3rem;
   writing-mode: vertical-lr;
 }
-.presentation .scrolldown {
-  /* position: fixed; */
-}
+
 .scrolldown::after {
   content: '';
   position: absolute;
@@ -810,6 +815,20 @@ img {
   }
   .img-content {
     max-width: 100%;
+  }
+  .scrolldown {
+    font-size: 0.9rem;
+    left: auto;
+    right: 5%;
+    bottom: 40px;
+  }
+  .scrolldown::after {
+    height: 32px;
+    bottom: -40px;
+  }
+
+  .text .heading {
+    margin-bottom: 5rem;
   }
 }
 
