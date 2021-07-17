@@ -4,47 +4,16 @@ var parallaxInstance = new Parallax(scene);
 
 var scene = document.getElementById('moon');
 var parallaxInstance = new Parallax(scene);
-// ----------------------------------------------------
 
-// // nav animation handler
-// const toggleAnimation = (e) => {
-//   const header = document.querySelector('header');
-//   const extendedMenu = document.querySelector('.extended-menu');
-
-//   if (!header.classList.contains('active')) {
-//     header.classList.add('active');
-//     extendedMenu.classList.toggle('active');
-//   } else {
-//     header.classList.remove('active');
-//     extendedMenu.classList.toggle('active');
-//   }
-// };
-
-// const navHandler = () => {
-//   const navHamburger = document.querySelector('.hamburger');
-//   const navlinks = document.querySelectorAll('.nav-links a');
-
-//   navHamburger.addEventListener('click', toggleAnimation);
-//   navlinks.forEach((link) => {
-//     link.addEventListener('click', toggleAnimation);
-//   });
-// };
-
-// navHandler();
-
-// -----------------------------------------------------
-
+//fullpage
 new fullpage('#fullpage', {
   licenseKey: 'YOUR KEY HERE',
   autoScrolling: true,
   easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-  scrollingSpeed: 1e3,
   scrollOverflow: false,
   anchors: ['home', 'work1', 'work2', 'work3', 'contact'],
   menu: '#myMenu',
   onLeave: (index, nextIndex, direction) => {
-    console.log(window.innerWidth);
-
     animateSlides(nextIndex.item);
   },
   afterLoad: (index, nextIndex, direction) => {},
@@ -161,18 +130,27 @@ const animateSlides = (nextIndex) => {
   }
 };
 
-const first = document.querySelector('section.hero');
-animateSlides(first);
+setTimeout(() => {
+  const first = document.querySelector('section.hero');
+  animateSlides(first);
+}, 0);
+
+const load = document.querySelector('progress#load');
+loading = new TimelineMax();
+loading.to('progress#load', { value: 100, duration: 0.45 });
+setTimeout(() => {
+  gsap.to('.load-swipe', 0.7, { y: '-100%', ease: 'sine.out' });
+  gsap.to('.load-swipe', 0.4, { opacity: 0, delay: 0.3, ease: Power2.easeIn });
+}, 500);
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
-
-// setTimeout(() => {
-
-//   gsap.to('.load-swipe', 0.7, { y: '-100%', ease: 'sine.out' });
-// }, 300);
+window.addEventListener(
+  'resize',
+  () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  },
+  { passive: true }
+);

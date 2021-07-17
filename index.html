@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Theodor Stanica's Portfolio" />
     <title>Theodor Stanica's Portfolio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Pacifico&display=swap"
@@ -26,6 +27,7 @@
         <div class="nav-left">
           <a
             href="https://github.com/TheoStanica"
+            rel="noreferrer"
             class="nav-git-link"
             target="_blank"
             ><i class="fab fa-github"></i> Github</a
@@ -45,11 +47,21 @@
       </header>
       <div class="fullpage-nav">
         <ul id="myMenu">
-          <li data-menuanchor="home"><a href="#home"></a></li>
-          <li data-menuanchor="work1"><a href="#work1"></a></li>
-          <li data-menuanchor="work2"><a href="#work2"></a></li>
-          <li data-menuanchor="work3"><a href="#work3"></a></li>
-          <li data-menuanchor="contact"><a href="#contact"></a></li>
+          <li data-menuanchor="home">
+            <a href="#home" class="hidden-link">Home</a>
+          </li>
+          <li data-menuanchor="work1">
+            <a href="#work1" class="hidden-link">Electric Vehicles</a>
+          </li>
+          <li data-menuanchor="work2">
+            <a href="#work2" class="hidden-link">Mark Manager</a>
+          </li>
+          <li data-menuanchor="work3">
+            <a href="#work3" class="hidden-link">GitTix</a>
+          </li>
+          <li data-menuanchor="contact">
+            <a href="#contact" class="hidden-link">Contact</a>
+          </li>
         </ul>
       </div>
       <div id="fullpage" data-barba="container" data-barba-namespace="home">
@@ -142,14 +154,22 @@
                 <a
                   href="https://github.com/TheoStanica/Electric-Vehicles"
                   target="_blank"
+                  rel="noreferrer"
                   class="cta-button"
                   ><i class="fab fa-github"></i> Github</a
                 >
               </div>
             </div>
           </div>
-          <a href="" class="image image-electric-vehicles image-slide">
-            <img src="./img/electric-vehicles-mockup-min.png" alt="" />
+          <a
+            href="./electric-vehicles.html"
+            class="image image-electric-vehicles image-slide"
+          >
+            <img
+              loading="lazy"
+              src="./img/electric-vehicles-mockup-min.png"
+              alt="Electric Vehicles Preview"
+            />
             <div class="page-num">
               <p>01</p>
             </div>
@@ -179,6 +199,7 @@
                 <!-- <a href="" class="cta-button">Show me more</a> -->
                 <a
                   href="https://github.com/TheoStanica/mark-manager"
+                  rel="noreferrer"
                   class="cta-button"
                   ><i class="fab fa-github"></i> Github</a
                 >
@@ -186,8 +207,15 @@
             </div>
           </div>
 
-          <a href="" class="image image-electric-vehicles image-slide">
-            <img src="./img/mark-mockup.png" alt="" />
+          <a
+            href="https://github.com/TheoStanica/mark-manager"
+            class="image image-electric-vehicles image-slide"
+          >
+            <img
+              loading="lazy"
+              src="./img/mark-mockup.jpg"
+              alt="Mark Manager Preview"
+            />
             <div class="page-num">
               <p>02</p>
             </div>
@@ -218,6 +246,7 @@
                 <a
                   href="https://github.com/TheoStanica/GitTix-Android"
                   class="cta-button"
+                  rel="noreferrer"
                   target="_blank"
                   ><i class="fab fa-github"></i> Github</a
                 >
@@ -225,8 +254,12 @@
             </div>
           </div>
 
-          <a href="" class="image image-slide">
-            <img src="./img/gittix-mockup.png" alt="" />
+          <a href="gititx.html" class="image image-slide">
+            <img
+              loading="lazy"
+              src="./img/gittix-mockup.png"
+              alt="GitTix Preview"
+            />
             <div class="page-num">
               <p>03</p>
             </div>
@@ -259,11 +292,13 @@
                 <a
                   href="https://www.linkedin.com/in/theodor-stanica-2a3521105/"
                   target="_blank"
+                  rel="noreferrer"
                   ><i class="fab fa-linkedin"></i> LinkedIn</a
                 >
                 <a
                   href="https://www.facebook.com/theodor.teo.77/"
                   target="_blank"
+                  rel="noreferrer"
                   ><i class="fab fa-facebook"></i> Facebook</a
                 >
               </div>
@@ -271,7 +306,11 @@
           </div>
 
           <div class="image image-contact image-slide">
-            <img src="./img/contact-min.png" alt="" />
+            <img
+              loading="lazy"
+              src="./img/contact-min.png"
+              alt="Contact Image"
+            />
             <div class="page-num">
               <p>04</p>
             </div>
@@ -287,7 +326,10 @@
         <div data-depth="0.2" class="moonlight-img"></div>
       </div>
     </div>
-    <div class="load-swipe"></div>
+    <div class="load-swipe">
+      <!-- <label for="file">Downloading progress:</label> -->
+      <progress id="load" value="0" max="100"></progress>
+    </div>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
