@@ -11,7 +11,7 @@ new fullpage('#fullpage', {
   autoScrolling: true,
   easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   scrollOverflow: false,
-  anchors: ['home', 'work1', 'work2', 'work3', 'contact'],
+  anchors: ['home', 'work1', 'work2', 'work3', 'work4', 'contact'],
   menu: '#myMenu',
   onLeave: (index, nextIndex, direction) => {
     animateSlides(nextIndex.item);
